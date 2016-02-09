@@ -1,10 +1,8 @@
 module Api
   class EventsController < ApiController
     def index
-      render json: Event.all, root: false
+      events = Event.where(["starts_at >= ? AND ends_at <= ?", params[:start], params[:end]])
+      render json: events, root: false
     end
-
-    private
-
   end
 end

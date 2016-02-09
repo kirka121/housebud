@@ -4,6 +4,10 @@ class EventsController < ApplicationController
     @event = Event.new()
   end
 
+  def show
+    @event = Event.find(event_id)
+  end
+
   def create
     event = Event.new(event_params)
 
@@ -27,9 +31,12 @@ class EventsController < ApplicationController
   end
 
   private
+    def event_id
+      params.require(:id).to_i
+    end
 
     def event_params
-      params.require(:event).permit(:title, :location, :description, :starts_at, :ends_at, :color_code, :all_day)
+      params.require(:event).permit(:id, :title, :location, :description, :starts_at, :ends_at, :color_code, :all_day)
     end
 end
 
