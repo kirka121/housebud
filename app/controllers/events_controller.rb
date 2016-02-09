@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
 
   def new
-    @event = Event.new
+    @event = Event.new()
   end
 
   def create
-
+    byebug
   end
 
   def edit

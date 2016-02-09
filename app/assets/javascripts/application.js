@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require tether
+//= require moment
 //= require bootstrap
 //= require bootstrap-colorpicker
+//= require bootstrap-switch
+//= require bootstrap-datetimepicker
 //= require jquery_ujs
-//= require moment
 //= require fullcalendar
 //= require turbolinks
 //= require coffee_routes

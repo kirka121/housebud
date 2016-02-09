@@ -1,3 +1,14 @@
 $('#modal-window').html(" <%= escape_javascript(render(partial: 'new', locals: { event: @event })) %> ");
+$('.colorpicker-hidden').remove();
 $('#event-color-picker').colorpicker();
+$('#event_all_day').bootstrapSwitch();
+
+$('#event_starts_at').datetimepicker({
+  format: 'YYYY-MM-DD h:mm'
+});
+
+$('#event_ends_at').datetimepicker({
+  format: 'YYYY-MM-DD h:mm'
+});
+
 $('#modal-window').modal('show');

@@ -24,9 +24,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'coffee_routes'
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap-sass'
 gem 'bootstrap_colorpicker_rails'
 gem 'bootstrap-switch-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'rails-assets-tether', '>= 1.1.0', source: 'https://rails-assets.org'
 
 group :development, :test do
@@ -35,6 +38,4 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
 
