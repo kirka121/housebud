@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  username:
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: housebud_dev
+
+test:
+  <<: *default
+  database: housebud_test
+
+production:
+  <<: *default
+  database: housebud_prod

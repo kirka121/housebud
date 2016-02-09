@@ -1,0 +1,3 @@
+$('#modal-window').html(" <%= escape_javascript(render(partial: 'new', locals: { event: @event })) %> ");
+$('#event-color-picker').colorpicker();
+$('#modal-window').modal('show');
