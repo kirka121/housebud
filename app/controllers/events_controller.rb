@@ -5,7 +5,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    byebug
+    event = Event.new(event_params)
+
+    if event.valid?
+      event.save
+    else
+      render 'errors', locals: { errors: event.errors.messages }
+    end
   end
 
   def edit
@@ -22,8 +28,8 @@ class EventsController < ApplicationController
 
   private
 
-    def calendar_params
-
+    def event_params
+      params.require(:event).permit(:title, :location, :description, :starts_at, :ends_at, :color_code, :all_day)
     end
 end
 

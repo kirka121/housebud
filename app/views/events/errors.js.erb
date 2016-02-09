@@ -1,0 +1,9 @@
+<% if errors.any? %>
+  <% errors.keys.each do |key| %>
+    <% if errors[key].present? %>
+      <% errors[key].each do |message| %>
+        $('#event_<%= key.to_s %>_error').append("<%= message.to_s.html_safe %>");
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -11,6 +11,8 @@
  * file per style scope.
  *
  */
+$red: #bf5e5e;
+
 @import "bootstrap";
 @import "bootstrap-colorpicker";
 @import "bootstrap3-switch";
@@ -18,4 +20,4 @@
 @import 'fullcalendar';
 @import "general";
 @import "landing";
-
+@import "events";

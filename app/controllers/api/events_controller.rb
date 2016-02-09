@@ -1,7 +1,10 @@
 module Api
   class EventsController < ApiController
     def index
-      render json: 'test'
+      render json: Event.all, root: false
     end
+
+    private
+
   end
 end
