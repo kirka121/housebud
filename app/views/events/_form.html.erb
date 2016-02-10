@@ -1,3 +1,19 @@
+<script>
+  $('.colorpicker-hidden').remove();
+
+  $('#event-color-picker').colorpicker();
+
+  $('#event_all_day').bootstrapSwitch();
+
+  $('#event_starts_at').datetimepicker({
+    format: 'YYYY-MM-DD h:mm'
+  });
+
+  $('#event_ends_at').datetimepicker({
+    format: 'YYYY-MM-DD h:mm'
+  });
+</script>
+
 <div class="modal-dialog">
   <div class="modal-content">
     <%= form_for event, remote: true, class: 'events-form' do |f| %>
@@ -68,7 +84,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <%= f.submit 'Create', class: 'btn btn-primary' %>
+        <% if event.persisted? %>
+          <%= f.submit 'Update', class: 'btn btn-primary' %>
+        <% else %>
+          <%= f.submit 'Create', class: 'btn btn-primary' %>
+        <% end %>
       </div>
     <% end %>
   </div>

@@ -1,2 +1,12 @@
 $('#modal-popover').html(" <%= escape_javascript(render(partial: 'show', locals: { event: @event, top: @top, left: @left })) %> ");
+$('#event-information-popover-close-button').click( function(event) {
+  $('#modal-popover').fadeOut('slow');
+});
 $('#modal-popover').fadeIn('slow');
+
+$('#event-edit-button').click( function(event){
+  $.ajax({
+    type: 'get',
+    url: edit_event_path({id: "<%= escape_javascript(@event.id.to_s) %>"})
+  })
+});

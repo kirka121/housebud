@@ -26,5 +26,5 @@ API=
     $.ajax({
       type: 'get'
       url: event_path({id: event.id})
-      data: { event_position: { top: jsEvent.clientY, left: jsEvent.clientX - 140 }}
+      data: { event_position: { top: jsEvent.pageY, left: jsEvent.pageX - 300 }}
     })

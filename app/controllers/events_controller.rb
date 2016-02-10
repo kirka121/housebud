@@ -21,11 +21,18 @@ class EventsController < ApplicationController
   end
 
   def edit
-
+    @event = Event.find(event_id)
   end
 
   def update
+    event = Event.find(event_id)
+    event.update(event_params)
 
+    if event.valid?
+      event.save
+    else
+      render 'errors', locals: { errors: event.errors.messages }
+    end
   end
 
   def destroy

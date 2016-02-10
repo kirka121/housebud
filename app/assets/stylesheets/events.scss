@@ -3,6 +3,34 @@
   color: $red;
 }
 
+.popover{
+  max-width: 700px !important;
+}
+
 .event-information-display{
-  width: 400px;
+  width: 600px;
+}
+
+.popover-title{
+  font-weight: 800;
+
+  .fa{
+    float: right;
+  }
+}
+.popover-footer{
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+  background-color: #f7f7f7;
+  border-top: 1px solid #ebebeb;
+  text-align: right;
+}
+
+.popover-content{
+  .label{
+    margin-left: 5px;
+  }
 }
