@@ -11,12 +11,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.new(event_params)
+    @event = Event.new(event_params)
 
-    if event.valid?
-      event.save
+    if @event.valid?
+      @event.save
+      @event = EventSerializer.new(@event, root: false)
     else
-      render 'errors', locals: { errors: event.errors.messages }
+      render 'errors', locals: { errors: @event.errors.messages }
     end
   end
 
@@ -25,11 +26,11 @@ class EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(event_id)
-    event.update(event_params)
+    @event = Event.find(event_id)
+    @event.update(event_params)
 
-    if event.valid?
-      event.save
+    if @event.valid?
+      @event.save
     else
       render 'errors', locals: { errors: event.errors.messages }
     end
@@ -39,7 +40,7 @@ class EventsController < ApplicationController
     event = Event.find(event_id)
 
     if event.destroy
-      head :ok
+      render json: event, root: false
     end
   end
 

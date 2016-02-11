@@ -19,19 +19,14 @@ $('#event-delete-button').click( function(event){
     showCancelButton: true,
     confirmButtonColor: "#DD6B55",
     confirmButtonText: "Delete",
-    closeOnConfirm: false },
+    closeOnConfirm: true },
     function(){
       $.ajax({
         type: 'delete',
         url: event_path({id: "<%= escape_javascript(@event.id.to_s) %>"})
-      }).done(function() {
-        swal({
-          title: "Deleted!",
-          text: "Your imaginary file has been deleted.",
-          type: "success"},
-          function(){
-            $('#modal-popover').fadeOut('slow');
-          });
+      }).done(function(data) {
+        $('#modal-popover').fadeOut('slow');
+        $('#calendar').fullCalendar('removeEvents', [data.id]);
       })
     });
 

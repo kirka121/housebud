@@ -2,7 +2,7 @@
   <% errors.keys.each do |key| %>
     <% if errors[key].present? %>
       <% errors[key].each do |message| %>
-        $('#event_<%= key.to_s %>_error').append("<%= message.to_s.html_safe %>");
+        $('#event_<%= key.to_s %>_error').append("<li><%= message.to_s.html_safe %></li>");
       <% end %>
     <% end %>
   <% end %>
