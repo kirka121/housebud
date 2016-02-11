@@ -30,14 +30,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def destroy
-    event = Event.find(event_id)
-
-    if event.destroy
-      render json: event, root: false
-    end
-  end
-
   private
 
     def event_id

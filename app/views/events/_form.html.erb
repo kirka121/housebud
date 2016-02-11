@@ -81,6 +81,13 @@
         </div>
         <ul class='event-form-errors' id='event_all_day_error'></ul>
 
+        <div class='event-form-todo-container'>
+          <% if event.todo_lists.any? %>
+
+          <% else %>
+            <button type='button' class='btn btn-warning' id='event-create-todo-list-button'>Add Todo</button>
+          <% end %>
+        </div>
       </div>
       <div class="modal-footer">
         <% if event.persisted? %>
