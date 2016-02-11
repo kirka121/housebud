@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def new
-    @event = Event.new(starts_at: event_params[:date], ends_at: event_params[:date])
+    @event = Event.new(starts_at: event_params[:date], ends_at: event_params[:date], color_code: random_color)
   end
 
   def show
@@ -55,6 +55,16 @@ class EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:id, :title, :location, :description, :starts_at, :ends_at, :date, :color_code, :all_day)
+    end
+
+    def random_color
+      colors = [
+        '#5d9b93',
+        '#815d93',
+        '#9e605d',
+        '#7a9e5d'
+      ]
+      colors[rand(0...colors.length)]
     end
 end
 
