@@ -33,6 +33,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'rails-assets-tether', '>= 1.1.0', source: 'https://rails-assets.org'
 gem 'active_model_serializers'
 gem 'font-awesome-rails'
+gem 'sweetalert-rails'
 
 group :development, :test do
   gem 'byebug'
