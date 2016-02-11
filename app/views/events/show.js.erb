@@ -24,7 +24,8 @@ $('#event-delete-button').click( function(event){
 $('#event-create-todo-list-button').click( function(event){
   $.ajax({
     type: 'get',
-    url: new_todo_list_path()
+    url: new_todo_list_path(),
+    data: { event: { id: "<%= escape_javascript(@event.id.to_s) %>"} }
   })
 })
 

@@ -1,7 +1,7 @@
 class TodoListsController < ApplicationController
 
   def new
-    @list = TodoList.create(title: 'To Do')
+    @list = TodoList.create(title: 'To Do', event_id: event_id)
   end
 
   def edit
@@ -26,6 +26,10 @@ class TodoListsController < ApplicationController
 
     def todo_list_id
       params.require(:id)
+    end
+
+    def event_id
+      params.require(:event).permit(:id)[:id]
     end
 end
 
