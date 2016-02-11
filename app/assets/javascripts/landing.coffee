@@ -4,9 +4,8 @@ $(document).on 'ready page:load', ->
     events: api_events_path()
     allDaySlot: true,
     header: {
-        left: 'prev,next, today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        left: 'title',
+        right: 'month,agendaWeek,agendaDay, today, prev,next'
     }
     dayClick: (date, jsEvent, view) ->
       API.onDayClicked(date, jsEvent, view)
