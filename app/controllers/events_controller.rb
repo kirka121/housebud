@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def new
-    @event = Event.new()
+    @event = Event.new(starts_at: event_params[:date], ends_at: event_params[:date])
   end
 
   def show
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:id, :title, :location, :description, :starts_at, :ends_at, :color_code, :all_day)
+      params.require(:event).permit(:id, :title, :location, :description, :starts_at, :ends_at, :date, :color_code, :all_day)
     end
 end
 

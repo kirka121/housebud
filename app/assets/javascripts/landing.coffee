@@ -19,7 +19,7 @@ API=
     $.ajax({
       type: 'get'
       url: new_event_path()
-      data: { date: date.format() }
+      data: { event: { date: date.format() } }
     })
 
   onEventClicked: (event, jsEvent, view) ->
