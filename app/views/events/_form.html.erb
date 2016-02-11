@@ -83,6 +83,9 @@
 
       </div>
       <div class="modal-footer">
+        <% if event.persisted? %>
+          <button type='button' class='btn btn-danger' id='event-delete-button'>Delete</button>
+        <% end %>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <% if event.persisted? %>
           <%= f.submit 'Update', class: 'btn btn-primary' %>

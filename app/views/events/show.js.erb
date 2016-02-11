@@ -1,2 +1,23 @@
 $('#modal-window').html(" <%= escape_javascript(render(partial: 'form', locals: { event: @event })) %> ");
 $('#modal-window').modal('show');
+
+$('#event-delete-button').click( function(event){
+  swal({
+    title: "Are you sure?",
+    text: "You will not be able to restore this event!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Delete",
+    closeOnConfirm: true },
+    function(){
+      $.ajax({
+        type: 'delete',
+        url: api_event_path({id: "<%= escape_javascript(@event.id.to_s) %>"})
+      }).done(function(data) {
+        $('#modal-window').modal('hide');
+        $('#calendar').fullCalendar('removeEvents', [data.id]);
+      })
+    });
+
+})
