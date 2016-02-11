@@ -36,7 +36,11 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    event = Event.find(event_id)
 
+    if event.destroy
+      head :ok
+    end
   end
 
   private
