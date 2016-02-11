@@ -1,15 +1,5 @@
-$('#modal-popover').html(" <%= escape_javascript(render(partial: 'show', locals: { event: @event, top: @top, left: @left })) %> ");
-$('#event-information-popover-close-button').click( function(event) {
-  $('#modal-popover').fadeOut('slow');
-});
-$('#modal-popover').fadeIn('slow');
-
-$('#event-edit-button').click( function(event){
-  $.ajax({
-    type: 'get',
-    url: edit_event_path({id: "<%= escape_javascript(@event.id.to_s) %>"})
-  })
-});
+$('#modal-window').html(" <%= escape_javascript(render(partial: 'form', locals: { event: @event })) %> ");
+$('#modal-window').modal('show');
 
 $('#event-delete-button').click( function(event){
   swal({
@@ -23,9 +13,9 @@ $('#event-delete-button').click( function(event){
     function(){
       $.ajax({
         type: 'delete',
-        url: event_path({id: "<%= escape_javascript(@event.id.to_s) %>"})
+        url: api_event_path({id: "<%= escape_javascript(@event.id.to_s) %>"})
       }).done(function(data) {
-        $('#modal-popover').fadeOut('slow');
+        $('#modal-window').modal('hide');
         $('#calendar').fullCalendar('removeEvents', [data.id]);
       })
     });
