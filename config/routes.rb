@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :events, only: [:index, :destroy]
+    resources :todo_lists, only: [:index, :destroy]
   end
 
-  resources :events, except: [:index, :edit, :destroy]
+  resources :events, except: [:index, :edit, :destroy], defaults: { format: :js }
+  resources :todo_lists, except: [:index, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

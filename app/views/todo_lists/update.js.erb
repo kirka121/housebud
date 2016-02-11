@@ -1,0 +1,4 @@
+id = <%= escape_javascript( @list.id.to_s ) %>
+
+$(".todo-list-container[data-event-id='"+id+"']").find('.todo-list-title-edit').fadeOut('fast')
+$(".todo-list-container[data-event-id='"+id+"']").find('.todo-list-title-show').html("<%= escape_javascript( @list.title ) %> ").fadeIn('fast')

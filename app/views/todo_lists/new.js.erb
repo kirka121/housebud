@@ -1,0 +1,3 @@
+$('.event-form-todo-create-container').html(" <%= escape_javascript(render(partial: 'form', locals: { list: @list })) %> ")
+$('.event-form-todo-create-container').fadeIn('slow');
+$('#event-create-todo-list-button').fadeOut('fast');

@@ -78,16 +78,24 @@
           <div class='col-sm-9'>
             <%= f.check_box :all_day, class: 'form-control' %>
           </div>
+          <ul class='event-form-errors' id='event_all_day_error'></ul>
         </div>
-        <ul class='event-form-errors' id='event_all_day_error'></ul>
 
-        <div class='event-form-todo-container'>
-          <% if event.todo_lists.any? %>
-
-          <% else %>
-            <button type='button' class='btn btn-warning' id='event-create-todo-list-button'>Add Todo</button>
-          <% end %>
+        <div class='form-group row'>
+          <label class="col-sm-3 form-control-label" for="event_ends_at">Todo</label>
+          <div class='col-sm-9'>
+            <div class='event-form-todo-container'>
+              <% if event.todo_lists.any? %>
+                <% event.todo_lists.each do |list| %>
+                  <%= render(partial: 'todo_lists/show', locals: { list: list }) %>
+                <% end %>
+              <% end %>
+              <div class='event-form-todo-create-container'></div>
+              <button type='button' class='btn btn-default btn-xs' id='event-create-todo-list-button' title='Add Todo List'><i class='fa fa-plus'> create new todo</i></button>
+            </div>
+          </div>
         </div>
+
       </div>
       <div class="modal-footer">
         <% if event.persisted? %>

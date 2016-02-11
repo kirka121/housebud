@@ -19,5 +19,20 @@ $('#event-delete-button').click( function(event){
         $('#calendar').fullCalendar('removeEvents', [data.id]);
       })
     });
+  })
 
+$('#event-create-todo-list-button').click( function(event){
+  $.ajax({
+    type: 'get',
+    url: new_todo_list_path()
+  })
+})
+
+$('.todo-list-title-show').click( function(event){
+  id = $(event.target.parentElement).data('event-id')
+
+  $.ajax({
+    type: 'get',
+    url: edit_todo_list_path({id: id})
+  })
 })
