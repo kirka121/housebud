@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def new
-    @event = Event.new()
+    @event = Event.new(starts_at: event_params[:date], ends_at: event_params[:date])
   end
 
   def show
@@ -11,12 +11,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.new(event_params)
+    @event = Event.new(event_params)
 
-    if event.valid?
-      event.save
+    if @event.valid?
+      @event.save
+      @event = EventSerializer.new(@event, root: false)
     else
-      render 'errors', locals: { errors: event.errors.messages }
+      render 'errors', locals: { errors: @event.errors.messages }
     end
   end
 
@@ -25,18 +26,22 @@ class EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(event_id)
-    event.update(event_params)
+    @event = Event.find(event_id)
+    @event.update(event_params)
 
-    if event.valid?
-      event.save
+    if @event.valid?
+      @event.save
     else
       render 'errors', locals: { errors: event.errors.messages }
     end
   end
 
   def destroy
+    event = Event.find(event_id)
 
+    if event.destroy
+      render json: event, root: false
+    end
   end
 
   private
@@ -49,7 +54,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:id, :title, :location, :description, :starts_at, :ends_at, :color_code, :all_day)
+      params.require(:event).permit(:id, :title, :location, :description, :starts_at, :ends_at, :date, :color_code, :all_day)
     end
 end
 

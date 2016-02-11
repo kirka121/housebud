@@ -1,1 +1,3 @@
-$('#modal-window').modal('hide')
+$('#modal-window').modal('hide');
+var event = JSON.parse('<%= escape_javascript @event.to_json.html_safe %>');
+$('#calendar').fullCalendar('renderEvent', event, true);

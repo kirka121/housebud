@@ -27,7 +27,7 @@
           <div class='col-sm-9'>
             <%= f.text_field :title, class: 'form-control' %>
           </div>
-          <div class='create-event-form-errors' id='event_title_error'></div>
+          <ul class='event-form-errors' id='event_title_error'></ul>
         </div>
 
         <div class='form-group row'>
@@ -35,7 +35,7 @@
           <div class='col-sm-9'>
             <%= f.text_field :location, class: 'form-control' %>
           </div>
-          <div class='create-event-form-errors' id='event_location_error'></div>
+          <ul class='event-form-errors' id='event_location_error'></ul>
         </div>
 
         <div class='form-group row'>
@@ -43,7 +43,7 @@
           <div class='col-sm-9'>
             <%= f.text_area :description, class: 'form-control' %>
           </div>
-          <div class='create-event-form-errors' id='event_description_error'></div>
+          <ul class='event-form-errors' id='event_description_error'></ul>
         </div>
 
         <div class='form-group row'>
@@ -51,7 +51,7 @@
           <div class='col-sm-9'>
             <%= f.datetime_field :starts_at, class: 'form-control' %>
           </div>
-          <div class='create-event-form-errors' id='event_starts_at_error'></div>
+          <ul class='event-form-errors' id='event_starts_at_error'></ul>
         </div>
 
         <div class='form-group row'>
@@ -59,7 +59,7 @@
           <div class='col-sm-9'>
             <%= f.datetime_field :ends_at, class: 'form-control' %>
           </div>
-          <div class='create-event-form-errors' id='event_ends_at_error'></div>
+          <ul class='event-form-errors' id='event_ends_at_error'></ul>
         </div>
 
         <div class='form-group row'>
@@ -70,7 +70,7 @@
               <span class='input-group-addon'><i></i></span>
             </div>
           </div>
-          <div class='create-event-form-errors' id='event_color_code_error'></div>
+          <ul class='event-form-errors' id='event_color_code_error'></ul>
         </div>
 
         <div class='form-group row'>
@@ -79,7 +79,7 @@
             <%= f.check_box :all_day, class: 'form-control' %>
           </div>
         </div>
-        <div class='create-event-form-errors' id='event_all_day_error'></div>
+        <ul class='event-form-errors' id='event_all_day_error'></ul>
 
       </div>
       <div class="modal-footer">

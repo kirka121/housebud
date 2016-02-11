@@ -19,6 +19,7 @@
 //= require bootstrap-datetimepicker
 //= require jquery_ujs
 //= require fullcalendar
+//= require sweet-alert
 //= require turbolinks
 //= require coffee_routes
 //= require_tree .
