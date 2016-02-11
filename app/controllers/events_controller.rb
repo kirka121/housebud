@@ -6,8 +6,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(event_id)
-    @top = event_position[:top]
-    @left = event_position[:left]
   end
 
   def create
@@ -19,10 +17,6 @@ class EventsController < ApplicationController
     else
       render 'errors', locals: { errors: @event.errors.messages }
     end
-  end
-
-  def edit
-    @event = Event.find(event_id)
   end
 
   def update
@@ -45,9 +39,6 @@ class EventsController < ApplicationController
   end
 
   private
-    def event_position
-      params.require(:event_position).permit(:top, :left)
-    end
 
     def event_id
       params.require(:id).to_i

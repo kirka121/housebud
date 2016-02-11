@@ -19,7 +19,7 @@
     <%= form_for event, remote: true, class: 'events-form' do |f| %>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Create an Event</h4>
+        <h4 class="modal-title"><%= event.persisted? ? "Event: #{event.title}" : 'Create an Event' %></h4>
       </div>
       <div class="modal-body">
         <div class='form-group row'>
