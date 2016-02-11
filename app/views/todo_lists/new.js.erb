@@ -1,0 +1,25 @@
+$('.event-form-todo-create-container').html(" <%= escape_javascript(render(partial: 'show', locals: { list: @list })) %> ")
+$('.event-form-todo-create-container').fadeIn('slow');
+$('#event-create-todo-list-button').fadeOut('fast');
+
+id = <%= escape_javascript( @list.id.to_s ) %>
+
+$(".todo-list-container[data-event-id='"+id+"']").find('.todo-list-title-show').click( function(event){
+  window.eventTitle = event.target.textContent
+
+  $(".todo-list-container[data-event-id='"+id+"']").find('.todo-list-title-show').fadeOut('fast')
+  $(".todo-list-container[data-event-id='"+id+"']").find('.todo-list-title-edit').html("<%= escape_javascript(render(partial: 'edit_title', locals: { list: @list })) %> ").fadeIn('fast', function() {
+    $(".todo-list-container[data-event-id='"+id+"']").find('#todo_list_title').focusout( function(event){
+      $.ajax({
+        type: 'patch',
+        url: todo_list_path({id: "<%= escape_javascript(@list.id.to_s) %>"}),
+        data: { todo_list: { title: event.target.value }}
+      })
+    })
+
+    $(".todo-list-container[data-event-id='"+id+"']").find('#todo_list_title').val(window.eventTitle)
+    $(".todo-list-container[data-event-id='"+id+"']").find('#todo_list_title').focus();
+  })
+})
+
+

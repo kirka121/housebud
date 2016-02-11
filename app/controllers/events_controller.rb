@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     @event = Event.new(starts_at: event_params[:date], ends_at: event_params[:date], color_code: random_color)
   end
 
+
   def show
     @event = Event.find(event_id)
   end
@@ -21,20 +22,11 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(event_id)
-    @event.update(event_params)
 
-    if @event.valid?
-      @event.save
+    if @event.update(event_params)
+      @event
     else
       render 'errors', locals: { errors: event.errors.messages }
-    end
-  end
-
-  def destroy
-    event = Event.find(event_id)
-
-    if event.destroy
-      render json: event, root: false
     end
   end
 
